@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB24F4CD1DCB45D9007DB196 /* SpriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24F4CC1DCB45D9007DB196 /* SpriteController.swift */; };
+		FB24F4CF1DCB461B007DB196 /* MetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24F4CE1DCB461B007DB196 /* MetalController.swift */; };
 		FB905BFD1DA22B0600031976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB905BFC1DA22B0600031976 /* AppDelegate.swift */; };
 		FB905BFF1DA22B0600031976 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB905BFE1DA22B0600031976 /* ViewController.swift */; };
 		FB905C021DA22B0600031976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB905C001DA22B0600031976 /* Main.storyboard */; };
 		FB905C041DA22B0600031976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB905C031DA22B0600031976 /* Assets.xcassets */; };
 		FB905C071DA22B0600031976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB905C051DA22B0600031976 /* LaunchScreen.storyboard */; };
+		FB905C0F1DA233B500031976 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FB905C0E1DA233B500031976 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB905BF91DA22B0600031976 /* GPUCalc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUCalc1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB24F4CC1DCB45D9007DB196 /* SpriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteController.swift; sourceTree = "<group>"; };
+		FB24F4CE1DCB461B007DB196 /* MetalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalController.swift; sourceTree = "<group>"; };
+		FB905BF91DA22B0600031976 /* GPUCalc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GPUCalc1.app; path = SwarmIntelligence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB905BFC1DA22B0600031976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB905BFE1DA22B0600031976 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FB905C011DA22B0600031976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FB905C031DA22B0600031976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB905C061DA22B0600031976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB905C081DA22B0600031976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB905C0E1DA233B500031976 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +44,7 @@
 		FB905BF01DA22B0600031976 = {
 			isa = PBXGroup;
 			children = (
-				FB905BFB1DA22B0600031976 /* GPUCalc1 */,
+				FB905BFB1DA22B0600031976 /* SwarmIntelligence */,
 				FB905BFA1DA22B0600031976 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,25 +57,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FB905BFB1DA22B0600031976 /* GPUCalc1 */ = {
+		FB905BFB1DA22B0600031976 /* SwarmIntelligence */ = {
 			isa = PBXGroup;
 			children = (
 				FB905BFC1DA22B0600031976 /* AppDelegate.swift */,
 				FB905BFE1DA22B0600031976 /* ViewController.swift */,
+				FB24F4CC1DCB45D9007DB196 /* SpriteController.swift */,
+				FB24F4CE1DCB461B007DB196 /* MetalController.swift */,
+				FB905C0E1DA233B500031976 /* Shaders.metal */,
 				FB905C001DA22B0600031976 /* Main.storyboard */,
 				FB905C031DA22B0600031976 /* Assets.xcassets */,
 				FB905C051DA22B0600031976 /* LaunchScreen.storyboard */,
 				FB905C081DA22B0600031976 /* Info.plist */,
 			);
+			name = SwarmIntelligence;
 			path = GPUCalc1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FB905BF81DA22B0600031976 /* GPUCalc1 */ = {
+		FB905BF81DA22B0600031976 /* SwarmIntelligence */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FB905C0B1DA22B0600031976 /* Build configuration list for PBXNativeTarget "GPUCalc1" */;
+			buildConfigurationList = FB905C0B1DA22B0600031976 /* Build configuration list for PBXNativeTarget "SwarmIntelligence" */;
 			buildPhases = (
 				FB905BF51DA22B0600031976 /* Sources */,
 				FB905BF61DA22B0600031976 /* Frameworks */,
@@ -79,7 +89,7 @@
 			);
 			dependencies = (
 			);
-			name = GPUCalc1;
+			name = SwarmIntelligence;
 			productName = GPUCalc1;
 			productReference = FB905BF91DA22B0600031976 /* GPUCalc1.app */;
 			productType = "com.apple.product-type.application";
@@ -91,16 +101,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Yukinaga;
 				TargetAttributes = {
 					FB905BF81DA22B0600031976 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = P9M57RDE9E;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = FB905BF41DA22B0600031976 /* Build configuration list for PBXProject "GPUCalc1" */;
+			buildConfigurationList = FB905BF41DA22B0600031976 /* Build configuration list for PBXProject "SwarmIntelligence" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FB905BF81DA22B0600031976 /* GPUCalc1 */,
+				FB905BF81DA22B0600031976 /* SwarmIntelligence */,
 			);
 		};
 /* End PBXProject section */
@@ -136,7 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB24F4CD1DCB45D9007DB196 /* SpriteController.swift in Sources */,
+				FB905C0F1DA233B500031976 /* Shaders.metal in Sources */,
 				FB905BFF1DA22B0600031976 /* ViewController.swift in Sources */,
+				FB24F4CF1DCB461B007DB196 /* MetalController.swift in Sources */,
 				FB905BFD1DA22B0600031976 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +195,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -231,6 +246,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -260,10 +276,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P9M57RDE9E;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = GPUCalc1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = NO;
+				MTL_OPTIMIZATION_LEVEL = s;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeroapps.GPUCalc1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -272,8 +294,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P9M57RDE9E;
 				INFOPLIST_FILE = GPUCalc1/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = NO;
+				MTL_OPTIMIZATION_LEVEL = s;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aeroapps.GPUCalc1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -283,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB905BF41DA22B0600031976 /* Build configuration list for PBXProject "GPUCalc1" */ = {
+		FB905BF41DA22B0600031976 /* Build configuration list for PBXProject "SwarmIntelligence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB905C091DA22B0600031976 /* Debug */,
@@ -292,13 +318,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FB905C0B1DA22B0600031976 /* Build configuration list for PBXNativeTarget "GPUCalc1" */ = {
+		FB905C0B1DA22B0600031976 /* Build configuration list for PBXNativeTarget "SwarmIntelligence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB905C0C1DA22B0600031976 /* Debug */,
 				FB905C0D1DA22B0600031976 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
