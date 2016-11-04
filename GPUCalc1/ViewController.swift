@@ -115,4 +115,5 @@ struct Node
     var positionY: Float = 0
     var velocityX: Float = 0
     var velocityY: Float = 0
+    var angle: Float = 0
 }
