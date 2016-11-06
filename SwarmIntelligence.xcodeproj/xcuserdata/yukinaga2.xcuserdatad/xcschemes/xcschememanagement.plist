@@ -4,21 +4,31 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SwarmIntelligence 2.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>SwarmIntelligence.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FB1EB4DB1DCF39B000DECB0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB1EB4E91DCF3A0400DECB0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB669B7C1DCF20360053CB08</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FB905BF81DA22B0600031976</key>
 		<dict>
 			<key>primary</key>

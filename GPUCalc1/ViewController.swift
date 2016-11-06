@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         print("[Input data] Count: \(nodes.count), First value: \(nodes.first!), Last value: \(nodes.last!)")
 
         metalController = MetalController(nodes, width: self.view.frame.size.width, height: self.view.frame.size.height)
-        metalController.move(nodes: &nodes, interval: 1)
+        metalController.move(nodes: &nodes, interval: Float(1))
         //結果の表示
         print("[Result data] Count: \(nodes.count), First value: \(nodes.first!), Last value: \(nodes.last!)")
     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB1EB4ED1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1EB4EC1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift */; };
 		FB24F4CD1DCB45D9007DB196 /* SpriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24F4CC1DCB45D9007DB196 /* SpriteController.swift */; };
 		FB24F4CF1DCB461B007DB196 /* MetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24F4CE1DCB461B007DB196 /* MetalController.swift */; };
 		FB905BFD1DA22B0600031976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB905BFC1DA22B0600031976 /* AppDelegate.swift */; };
@@ -17,7 +18,20 @@
 		FB905C0F1DA233B500031976 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FB905C0E1DA233B500031976 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FB1EB4EF1DCF3A0500DECB0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB905BF11DA22B0600031976 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB905BF81DA22B0600031976;
+			remoteInfo = SwarmIntelligence;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		FB1EB4EA1DCF3A0400DECB0F /* SwarmIntelligenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmIntelligenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB1EB4EC1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmIntelligenceTests.swift; sourceTree = "<group>"; };
+		FB1EB4EE1DCF3A0500DECB0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB24F4CC1DCB45D9007DB196 /* SpriteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteController.swift; sourceTree = "<group>"; };
 		FB24F4CE1DCB461B007DB196 /* MetalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalController.swift; sourceTree = "<group>"; };
 		FB905BF91DA22B0600031976 /* GPUCalc1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GPUCalc1.app; path = SwarmIntelligence.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +45,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FB1EB4E71DCF3A0400DECB0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB905BF61DA22B0600031976 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +62,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB1EB4EB1DCF3A0500DECB0F /* SwarmIntelligenceTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB1EB4EC1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift */,
+				FB1EB4EE1DCF3A0500DECB0F /* Info.plist */,
+			);
+			path = SwarmIntelligenceTests;
+			sourceTree = "<group>";
+		};
 		FB905BF01DA22B0600031976 = {
 			isa = PBXGroup;
 			children = (
 				FB905BFB1DA22B0600031976 /* SwarmIntelligence */,
+				FB1EB4EB1DCF3A0500DECB0F /* SwarmIntelligenceTests */,
 				FB905BFA1DA22B0600031976 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				FB905BF91DA22B0600031976 /* GPUCalc1.app */,
+				FB1EB4EA1DCF3A0400DECB0F /* SwarmIntelligenceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +109,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FB1EB4E91DCF3A0400DECB0F /* SwarmIntelligenceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB1EB4F11DCF3A0500DECB0F /* Build configuration list for PBXNativeTarget "SwarmIntelligenceTests" */;
+			buildPhases = (
+				FB1EB4E61DCF3A0400DECB0F /* Sources */,
+				FB1EB4E71DCF3A0400DECB0F /* Frameworks */,
+				FB1EB4E81DCF3A0400DECB0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB1EB4F01DCF3A0500DECB0F /* PBXTargetDependency */,
+			);
+			name = SwarmIntelligenceTests;
+			productName = SwarmIntelligenceTests;
+			productReference = FB1EB4EA1DCF3A0400DECB0F /* SwarmIntelligenceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FB905BF81DA22B0600031976 /* SwarmIntelligence */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB905C0B1DA22B0600031976 /* Build configuration list for PBXNativeTarget "SwarmIntelligence" */;
@@ -100,10 +150,16 @@
 		FB905BF11DA22B0600031976 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Yukinaga;
 				TargetAttributes = {
+					FB1EB4E91DCF3A0400DECB0F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = P9M57RDE9E;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FB905BF81DA22B0600031976;
+					};
 					FB905BF81DA22B0600031976 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = P9M57RDE9E;
@@ -125,11 +181,19 @@
 			projectRoot = "";
 			targets = (
 				FB905BF81DA22B0600031976 /* SwarmIntelligence */,
+				FB1EB4E91DCF3A0400DECB0F /* SwarmIntelligenceTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FB1EB4E81DCF3A0400DECB0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB905BF71DA22B0600031976 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +207,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FB1EB4E61DCF3A0400DECB0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB1EB4ED1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FB905BF51DA22B0600031976 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -156,6 +228,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB1EB4F01DCF3A0500DECB0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB905BF81DA22B0600031976 /* SwarmIntelligence */;
+			targetProxy = FB1EB4EF1DCF3A0500DECB0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB905C001DA22B0600031976 /* Main.storyboard */ = {
@@ -177,6 +257,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FB1EB4F21DCF3A0500DECB0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = P9M57RDE9E;
+				INFOPLIST_FILE = SwarmIntelligenceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saiilab.SwarmIntelligenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmIntelligence.app/SwarmIntelligence";
+			};
+			name = Debug;
+		};
+		FB1EB4F31DCF3A0500DECB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = P9M57RDE9E;
+				INFOPLIST_FILE = SwarmIntelligenceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.saiilab.SwarmIntelligenceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwarmIntelligence.app/SwarmIntelligence";
+			};
+			name = Release;
+		};
 		FB905C091DA22B0600031976 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,6 +419,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FB1EB4F11DCF3A0500DECB0F /* Build configuration list for PBXNativeTarget "SwarmIntelligenceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB1EB4F21DCF3A0500DECB0F /* Debug */,
+				FB1EB4F31DCF3A0500DECB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		FB905BF41DA22B0600031976 /* Build configuration list for PBXProject "SwarmIntelligence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
