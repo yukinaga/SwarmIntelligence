@@ -19,12 +19,14 @@ class MetalController: NSObject {
     private var threadsPerThreadgroup:MTLSize!
     private var threadgroupsCount:MTLSize!
     
-    private var outBuffer: MTLBuffer!
     private var nodeCountBuffer: MTLBuffer!
-    
+    private var widthBuffer: MTLBuffer!
+    private var heightBuffer: MTLBuffer!
+    private var outBuffer: MTLBuffer!
+
     let nodeCount:Int
     
-    init(_ nodes:[Node]) {
+    init(_ nodes:[Node], width:CGFloat, height:CGFloat) {
         var count = nodes.count
         self.nodeCount = count
         
@@ -39,26 +41,29 @@ class MetalController: NSObject {
         threadgroupsCount = MTLSize(width: (nodeCount + width - 1) / width, height: 1, depth: 1)
         
         nodeCountBuffer = device.makeBuffer(bytes: &count, length: MemoryLayout.size(ofValue: count), options: [])
+        var wdth = Float(width)
+        widthBuffer = device.makeBuffer(bytes: &wdth, length: MemoryLayout.size(ofValue: wdth), options: [])
+        var hght = Float(height)
+        heightBuffer = device.makeBuffer(bytes: &hght, length: MemoryLayout.size(ofValue: hght), options: [])
         outBuffer = device.makeBuffer(bytes: nodes, length: nodes.byteLength, options: [])
     }
     
     func move( nodes:inout [Node], interval:Float) {
         
-        print("[Input data] Count: \(nodes.count), First value: \(nodes.first!), Last value: \(nodes.last!)")
-
         let commandBuffer = commandQueue.makeCommandBuffer()
         let computeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
         computeCommandEncoder.setComputePipelineState(computePipelineState)
         
         let inBuffer = device.makeBuffer(bytes: nodes, length: nodes.byteLength, options: [])
-        print(inBuffer.contents())
         var itvl = interval
         let intervalBuffer = device.makeBuffer(bytes: &itvl, length: MemoryLayout.size(ofValue: itvl), options: [])
         
         computeCommandEncoder.setBuffer(inBuffer, offset: 0, at: 0)
         computeCommandEncoder.setBuffer(nodeCountBuffer, offset: 0, at: 1)
         computeCommandEncoder.setBuffer(intervalBuffer, offset: 0, at: 2)
-        computeCommandEncoder.setBuffer(outBuffer, offset: 0, at: 3)
+        computeCommandEncoder.setBuffer(widthBuffer, offset: 0, at: 3)
+        computeCommandEncoder.setBuffer(heightBuffer, offset: 0, at: 4)
+        computeCommandEncoder.setBuffer(outBuffer, offset: 0, at: 5)
         
         computeCommandEncoder.dispatchThreadgroups(threadgroupsCount, threadsPerThreadgroup: threadsPerThreadgroup)
         computeCommandEncoder.endEncoding()
@@ -73,8 +78,7 @@ class MetalController: NSObject {
             Array(UnsafeBufferPointer<Node>(start: $0, count: data.count/MemoryLayout<Node>.size))
         }
         
-        //結果の表示
-        print("[Result data] Count: \(nodes.count), First value: \(nodes.first!), Last value: \(nodes.last!)")
+
         
     }
 
