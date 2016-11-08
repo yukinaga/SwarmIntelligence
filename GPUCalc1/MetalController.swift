@@ -24,10 +24,10 @@ class MetalController: NSObject {
     private var heightBuffer: MTLBuffer!
     private var outBuffer: MTLBuffer!
 
-    let nodeCount:Int
-    
+    let nodeCount:UInt32
+        
     init(_ nodes:[Node], width:CGFloat, height:CGFloat) {
-        var count = nodes.count
+        var count = UInt32(nodes.count)
         self.nodeCount = count
         
         device = MTLCreateSystemDefaultDevice()
@@ -36,9 +36,9 @@ class MetalController: NSObject {
         let ml2Func = defaultLibrary.makeFunction(name: "move")!
         computePipelineState = try! device.makeComputePipelineState(function: ml2Func)
         
-        let width = 64
-        threadsPerThreadgroup = MTLSize(width: width, height: 1, depth: 1)
-        threadgroupsCount = MTLSize(width: (nodeCount + width - 1) / width, height: 1, depth: 1)
+        let threadWidth = 64
+        threadsPerThreadgroup = MTLSize(width: threadWidth, height: 1, depth: 1)
+        threadgroupsCount = MTLSize(width: (Int(nodeCount) + threadWidth - 1) / threadWidth, height: 1, depth: 1)
         
         nodeCountBuffer = device.makeBuffer(bytes: &count, length: MemoryLayout.size(ofValue: count), options: [])
         var wdth = Float(width)
@@ -48,14 +48,14 @@ class MetalController: NSObject {
         outBuffer = device.makeBuffer(bytes: nodes, length: nodes.byteLength, options: [])
     }
     
-    func move( nodes:inout [Node], interval:Float) {
+    func move( nodes:[Node], interval:Float, callBack:([Node]) -> Void) {
         
         let commandBuffer = commandQueue.makeCommandBuffer()
         let computeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
         computeCommandEncoder.setComputePipelineState(computePipelineState)
         
         let inBuffer = device.makeBuffer(bytes: nodes, length: nodes.byteLength, options: [])
-        var itvl = interval
+        var itvl = Float32(interval)
         let intervalBuffer = device.makeBuffer(bytes: &itvl, length: MemoryLayout.size(ofValue: itvl), options: [])
         
         computeCommandEncoder.setBuffer(inBuffer, offset: 0, at: 0)
@@ -72,11 +72,19 @@ class MetalController: NSObject {
         commandBuffer.waitUntilCompleted()
         
         let data = Data(bytesNoCopy: outBuffer.contents(), count: nodes.byteLength, deallocator: .none)
-//        var resultData = [Node](repeating: Node, count: nodes.count)
-        
-        nodes = data.withUnsafeBytes {
+        var resultNodes = [Node](repeating: Node(positionX: 0, positionY: 0, velocityX: 0, velocityY: 0, angle: 0), count: nodes.count)
+        resultNodes = data.withUnsafeBytes {
             Array(UnsafeBufferPointer<Node>(start: $0, count: data.count/MemoryLayout<Node>.size))
         }
+//        print(resultNodes)
+        
+        callBack(resultNodes)
+
+//        nodes = data.withUnsafeBytes {
+//            Array(UnsafeBufferPointer<Node>(start: $0, count: data.count/MemoryLayout<Node>.size))
+//        }
+//        nodes.removeAll()
+//        nodes.append(contentsOf: resultData)
         
 
         
