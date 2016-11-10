@@ -26,7 +26,8 @@ class MetalController: NSObject {
 
     let nodeCount:UInt32
         
-    init(_ nodes:[Node], width:CGFloat, height:CGFloat) {
+    init(_ nodes:[Node], width:CGFloat, height:CGFloat)
+    {
         var count = UInt32(nodes.count)
         self.nodeCount = count
         
@@ -48,8 +49,8 @@ class MetalController: NSObject {
         outBuffer = device.makeBuffer(bytes: nodes, length: nodes.byteLength, options: [])
     }
     
-    func move( nodes:[Node], interval:Float, callBack:([Node]) -> Void) {
-        
+    func move( nodes:[Node], interval:Float, callBack:([Node]) -> Void)
+    {
         let commandBuffer = commandQueue.makeCommandBuffer()
         let computeCommandEncoder = commandBuffer.makeComputeCommandEncoder()
         computeCommandEncoder.setComputePipelineState(computePipelineState)
@@ -76,18 +77,8 @@ class MetalController: NSObject {
         resultNodes = data.withUnsafeBytes {
             Array(UnsafeBufferPointer<Node>(start: $0, count: data.count/MemoryLayout<Node>.size))
         }
-//        print(resultNodes)
-        
+
         callBack(resultNodes)
-
-//        nodes = data.withUnsafeBytes {
-//            Array(UnsafeBufferPointer<Node>(start: $0, count: data.count/MemoryLayout<Node>.size))
-//        }
-//        nodes.removeAll()
-//        nodes.append(contentsOf: resultData)
-        
-
-        
     }
 
 }

@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     var nodes:[Node] = []
     
     var metalController:MetalController!
-    var spriteScene:SpriteScene!
     
     var displayLink:CADisplayLink!
     var lastTimeStamp:CFTimeInterval = 0
@@ -44,38 +43,14 @@ class ViewController: UIViewController {
             fishes.append(fish)
         }
 
-//        nodes.append(Node(positionX: 100, positionY: 100, velocityX: 0, velocityY: 1.05, angle: 0))
-//        nodes.append(Node(positionX: 145, positionY: 100, velocityX: 0, velocityY: 1.0, angle: 0))
-
         metalController = MetalController(nodes, width: width, height: height)
-        
-//        let view = self.view as! SKView
-//        view.ignoresSiblingOrder = true
-//        view.showsFPS = true
-//        view.showsNodeCount = true
-        
-//        spriteScene = SpriteScene(size: view.frame.size)
-//        spriteScene.setSprites(nodes: nodes)
-//        spriteScene.scaleMode = .aspectFill
-//        spriteScene.backgroundColor = .white
-//        view.presentScene(spriteScene)
-        
-//        let fish1 = Fish()
-//        fish1.center = CGPoint(x: 100, y: 100)
-//        self.view.addSubview(fish1)
-//        fishes.append(fish1)
-//        
-//        let fish2 = Fish()
-//        fish1.center = CGPoint(x: 120, y: 100)
-//        self.view.addSubview(fish2)
-//        fishes.append(fish2)
         
         displayLink = CADisplayLink(target: self, selector: #selector(ViewController.update))
         displayLink.add(to: RunLoop.current, forMode: .defaultRunLoopMode)
     }
     
-    func update() {
-        
+    func update()
+    {
         if lastTimeStamp == 0 {
             lastTimeStamp = displayLink.timestamp
             return
@@ -85,22 +60,19 @@ class ViewController: UIViewController {
         let interval = now - lastTimeStamp
         lastTimeStamp = now
         
-//        metalController.move(nodes: &nodes, interval: Float(interval))
         metalController.move(nodes: nodes, interval: Float(interval)){( resultNodes:[Node]) -> Void in
-            
             nodes = resultNodes
             for (i, fish) in fishes.enumerated() {
                 fish.setNode(node: nodes[i], height: self.view.frame.size.height)
             }
-//            spriteScene.rotate()
-//            spriteScene.replaceSprites(nodes: nodes)
         }
-//        print(nodes[0].angle)
-//        imageView.transform = CGAffineTransform(rotationAngle: CGFloat(nodes[0].angle))
+    }
+    
+    deinit {
+        displayLink.invalidate()
     }
 }
 
-//各個体を表す構造体
 struct Node
 {
     var positionX: Float = 0

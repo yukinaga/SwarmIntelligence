@@ -9,9 +9,11 @@
 #include <metal_stdlib>
 using namespace metal;
 
+constant float alpha = 0.025;
+constant float beta = 0.2;
+constant float gamma = 0.005;
+
 constant float spaceRatio = 0.12;
-constant float angleAcceration = 0.1;
-constant float velocityAcceration = 0.02;
 
 struct Node
 {
@@ -22,14 +24,16 @@ struct Node
     float angle;
 };
 
-static float getDistace(float x1, float y1, float x2, float y2){
+static float getDistace(float x1, float y1, float x2, float y2)
+{
     float dx = x1-x2;
     float dy = y1-y2;
     return sqrt(dx*dx + dy*dy);
 }
 
 //From -pi to pi
-static float getRangedAngle(float angle){
+static float getRangedAngle(float angle)
+{
     if (angle > M_PI_F){
         angle -= 2 * M_PI_F;
     }else if (angle < -M_PI_F){
@@ -47,8 +51,9 @@ kernel void move(const device Node *inNode [[ buffer(0) ]],
                  uint id [[ thread_position_in_grid ]])
 {
     Node currentNode = inNode[id];
-    float alpha = width * spaceRatio;
-    float beta = 6.25 / alpha / alpha;
+    
+    float a = width * spaceRatio;
+    float b = 6.25 / a / a;
     float dAngle = 0;
     
     float velocityX = currentNode.velocityX;
@@ -56,12 +61,8 @@ kernel void move(const device Node *inNode [[ buffer(0) ]],
     float velocity = sqrt(velocityX*velocityX + velocityY*velocityY);
     
     float outerSpace = width * 0.1;
-
-    float fa = 0;//Debug
-    float na = 0;//Debug
     
     for (uint i=0; i<nodeCount; i++){
-        
         if (i == id){
             continue;
         };
@@ -69,25 +70,18 @@ kernel void move(const device Node *inNode [[ buffer(0) ]],
         Node node = inNode[i];
         
         float distance = getDistace(node.positionX, node.positionY, currentNode.positionX, currentNode.positionY);
+        
         float nearAngle = getRangedAngle(atan2(node.positionX-currentNode.positionX, node.positionY-currentNode.positionY) - currentNode.angle);
-        na = nearAngle;
         float farAngle = getRangedAngle(atan2(currentNode.positionX-node.positionX, currentNode.positionY-node.positionY) - currentNode.angle);
-        fa = farAngle; //Debug
+        float attraction = exp(-b * (distance - a)*(distance - a));
+        float repulsion = exp(-b * distance * distance);
+        dAngle += alpha * (nearAngle*attraction + farAngle*repulsion)*interval;
         
-        
-        float attraction = exp(-beta * (distance - alpha)*(distance - alpha));
-        float repulsion = exp(-beta * distance * distance);
-        
-        dAngle += angleAcceration * (nearAngle*attraction + farAngle*repulsion)*interval;
+        float parallelAngleDif = getRangedAngle(node.angle - currentNode.angle);
+        dAngle += beta * parallelAngleDif * exp(-b * distance * distance) * interval;
         
         float nodeVelocity = sqrt(node.velocityX*node.velocityX + node.velocityY*node.velocityY);
-        velocity += velocityAcceration * (nodeVelocity - velocity) * exp(-10*beta * distance * distance);;
-//        velocity += velocityAcceration * (nodeVelocity - velocity) * repulsion;
-//        velocity += velocityAcceration * (0.1*attraction - repulsion);
-        
-        float parallelAngleDif = getRangedAngle(node.angle-currentNode.angle);
-        dAngle -= angleAcceration * parallelAngleDif * 10 * exp(-beta * distance * distance) * interval;
-
+        velocity += gamma * (nodeVelocity - velocity) * exp(-b * distance * distance);;
     }
     
     float newAngle = getRangedAngle(currentNode.angle + dAngle);
@@ -115,9 +109,4 @@ kernel void move(const device Node *inNode [[ buffer(0) ]],
     outNode[id].velocityX = velocityX;
     outNode[id].velocityY = velocityY;
     outNode[id].angle = newAngle;
-
 }
-
-
-
-

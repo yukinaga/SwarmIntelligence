@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FB1EB4ED1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1EB4EC1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift */; };
-		FB1EB5271DCF62B800DECB0F /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = FB1EB5261DCF62B800DECB0F /* fish.png */; };
-		FB1EB5291DCF648200DECB0F /* SpriteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1EB5281DCF648200DECB0F /* SpriteScene.swift */; };
 		FB24F4CF1DCB461B007DB196 /* MetalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB24F4CE1DCB461B007DB196 /* MetalController.swift */; };
 		FB77480F1DD0750B00202836 /* Fish.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77480E1DD0750B00202836 /* Fish.swift */; };
+		FB7748111DD3039700202836 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = FB7748101DD3039700202836 /* fish.png */; };
 		FB905BFD1DA22B0600031976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB905BFC1DA22B0600031976 /* AppDelegate.swift */; };
 		FB905BFF1DA22B0600031976 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB905BFE1DA22B0600031976 /* ViewController.swift */; };
 		FB905C021DA22B0600031976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB905C001DA22B0600031976 /* Main.storyboard */; };
@@ -34,10 +33,9 @@
 		FB1EB4EA1DCF3A0400DECB0F /* SwarmIntelligenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwarmIntelligenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1EB4EC1DCF3A0500DECB0F /* SwarmIntelligenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwarmIntelligenceTests.swift; sourceTree = "<group>"; };
 		FB1EB4EE1DCF3A0500DECB0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB1EB5261DCF62B800DECB0F /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
-		FB1EB5281DCF648200DECB0F /* SpriteScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteScene.swift; sourceTree = "<group>"; };
 		FB24F4CE1DCB461B007DB196 /* MetalController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetalController.swift; sourceTree = "<group>"; };
 		FB77480E1DD0750B00202836 /* Fish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fish.swift; sourceTree = "<group>"; };
+		FB7748101DD3039700202836 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		FB905BF91DA22B0600031976 /* SwarmIntelligence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwarmIntelligence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB905BFC1DA22B0600031976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB905BFE1DA22B0600031976 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 		FB905BF01DA22B0600031976 = {
 			isa = PBXGroup;
 			children = (
-				FB1EB5261DCF62B800DECB0F /* fish.png */,
+				FB7748101DD3039700202836 /* fish.png */,
 				FB905BFB1DA22B0600031976 /* SwarmIntelligence */,
 				FB1EB4EB1DCF3A0500DECB0F /* SwarmIntelligenceTests */,
 				FB905BFA1DA22B0600031976 /* Products */,
@@ -100,7 +98,6 @@
 				FB905BFC1DA22B0600031976 /* AppDelegate.swift */,
 				FB905BFE1DA22B0600031976 /* ViewController.swift */,
 				FB77480E1DD0750B00202836 /* Fish.swift */,
-				FB1EB5281DCF648200DECB0F /* SpriteScene.swift */,
 				FB24F4CE1DCB461B007DB196 /* MetalController.swift */,
 				FB905C0E1DA233B500031976 /* Shaders.metal */,
 				FB905C001DA22B0600031976 /* Main.storyboard */,
@@ -205,8 +202,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB905C071DA22B0600031976 /* LaunchScreen.storyboard in Resources */,
+				FB7748111DD3039700202836 /* fish.png in Resources */,
 				FB905C041DA22B0600031976 /* Assets.xcassets in Resources */,
-				FB1EB5271DCF62B800DECB0F /* fish.png in Resources */,
 				FB905C021DA22B0600031976 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +226,6 @@
 				FB905C0F1DA233B500031976 /* Shaders.metal in Sources */,
 				FB77480F1DD0750B00202836 /* Fish.swift in Sources */,
 				FB905BFF1DA22B0600031976 /* ViewController.swift in Sources */,
-				FB1EB5291DCF648200DECB0F /* SpriteScene.swift in Sources */,
 				FB24F4CF1DCB461B007DB196 /* MetalController.swift in Sources */,
 				FB905BFD1DA22B0600031976 /* AppDelegate.swift in Sources */,
 			);
